@@ -32,7 +32,7 @@ Route::get('get-address/{id}', 'App\Http\Controllers\AddressController@getAddres
 #Obter cidades
 Route::get('get-cities', 'App\Http\Controllers\CityController@getCities');
 #Obter cidade por id
-Route::get('city/{id}', 'App\Http\Controllers\CityController@getCityById');
+Route::get('get-city/{id}', 'App\Http\Controllers\CityController@getCityById');
 
 #-------------------------
 
@@ -46,6 +46,6 @@ Route::get('get-state/{id}', 'App\Http\Controllers\StateController@getStateById'
 
 
 
-Route::get('users-by-city', 'App\Http\Controllers\UserController@getUsersByCity');
-Route::get('users-by-state', 'App\Http\Controllers\UserController@getUsersByState');
+Route::get('users-by-city/{city}', 'App\Http\Controllers\UserController@getUsersByCity');
+Route::get('users-by-state/{state}', 'App\Http\Controllers\UserController@getUsersByState');
 

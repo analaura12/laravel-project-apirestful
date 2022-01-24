@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\State;
+use App\Models\City;
 
 class UserController extends Controller
 {
@@ -63,5 +65,17 @@ class UserController extends Controller
         return response()->json([
             "message" => "Usuário deletado com sucesso"
         ], 201);
+    }
+
+    public function getUsersByCity($city){
+        $city_response = City::where('name', $city)->value('id');
+        $users = User::where('state_id', $city_response)->count();
+        return response($users, 200);
+    }
+
+    public function getUsersByState($state){
+        $state_response = State::where('name', $state)->value('id');
+        $users = User::where('state_id', $state_response)->count();
+        return response($users, 200);
     }
 }
