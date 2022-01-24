@@ -44,8 +44,7 @@ Route::get('get-states', 'App\Http\Controllers\StateController@getStates');
 Route::get('get-state/{id}', 'App\Http\Controllers\StateController@getStateById');
 
 
-
-
+#Rotas referente aos usuários por cidade e estadis
 Route::get('users-by-city/{city}', 'App\Http\Controllers\UserController@getUsersByCity');
 Route::get('users-by-state/{state}', 'App\Http\Controllers\UserController@getUsersByState');
 
