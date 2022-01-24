@@ -13,9 +13,9 @@ Route::get('cities', 'App\Http\Controllers\CityController@getCities');
 Route::get('city/{id}', 'App\Http\Controllers\CityController@getCityById');
 
 Route::get('states', 'App\Http\Controllers\StateController@getStates');
-Route::get('state/{id}', 'App\Http\Controllers\StateController@getCityById');
+Route::get('state/{id}', 'App\Http\Controllers\StateController@getStateById');
 
-Route::get('addresses', 'App\Http\Controllers\CityController@getAddresses');
-Route::get('address/{id}', 'App\Http\Controllers\CityController@getAddressById');
+Route::get('addresses', 'App\Http\Controllers\AddressController@getAddresses');
+Route::get('address/{id}', 'App\Http\Controllers\AddressController@getAddressById');
 
 
