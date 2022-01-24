@@ -18,6 +18,26 @@ class CitySeeder extends Seeder
             array (
                 'id' => '1',
                 'name' => 'São Paulo'
+            ),
+            1 =>
+            array (
+                'id' => '2',
+                'name' => 'Santa Isabel'
+            ),
+            2 =>
+            array (
+                'id' => '3',
+                'name' => 'Arujá'
+            ),
+            3 =>
+            array (
+                'id' => '4',
+                'name' => 'Mogi das Cruzes'
+            ),
+            4 =>
+            array (
+                'id' => '5',
+                'name' => 'Guarulhos'
             )
         ));
     }

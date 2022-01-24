@@ -7,26 +7,10 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function getUsers(){
+        $users = User::get()->toJson(JSON_PRETTY_PRINT);
+        return response($users, 200);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,59 +23,45 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->age = $request->age;
         $user->email = $request->email;        
-        $user->address = $request->address;
-        $user->city = $request->city;
-        $user->state = $request->state;
+        $user->address_id = $request->address_id;
+        $user->city_id = $request->city_id;
+        $user->state_id = $request->state_id;
 
-        $student->save();
+        $user->save();
 
         return response()->json([
-            "message" => "student record created"
+            "message" => "Usuário cadastrado com sucesso"
         ], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function updateUser(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->age = $request->age;
+        $user->email = $request->email;        
+        $user->address_id = $request->address_id;
+        $user->city_id = $request->city_id;
+        $user->state_id = $request->state_id;
+
+        $user->save();
+
+        return response()->json([
+            "message" => "Usuário atualizado com sucesso"
+        ], 201);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function getUser($id){
+        $user = User::find($id)->toJson(JSON_PRETTY_PRINT);
+        return response($user, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    public function deleteUser($id){
+        $user = User::findOrFail($id);
+        $user->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return response()->json([
+            "message" => "Usuário deletado com sucesso"
+        ], 201);
     }
 }
